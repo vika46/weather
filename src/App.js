@@ -12,14 +12,15 @@ function App() {
   const [weather, setWeather] = useState({});
 
   const search = evt =>
-  {
-      if(evt.key === "Enter")
+  {   
+    //console.log(evt);
+      if(evt.key === "Enter" || evt.type === "click")
       {
         fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
           .then(res => res.json())
           .then(result => {setWeather(result);
           setQuery('');
-          console.log(result);
+          //console.log(result);
         });
       }
   }
@@ -36,6 +37,10 @@ function App() {
 
     return `${day} ${date} ${month} ${year}`
   }
+  const timeBuilder = (t) =>
+  {
+    return t.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  }
 
   return (
     
@@ -44,9 +49,12 @@ function App() {
       : 'app' }>
       <main>
         <div className="search-box">
-          <input type="text" className="search-bar" placeholder="Search..." onChange ={e => setQuery(e.target.value)}
+          <input type="text" className="search-bar" placeholder="Enter..." onChange ={e => setQuery(e.target.value)}
           value= {query}
           onKeyPress={search}/>
+          <div className = "button">
+          <button type ="submit" className ="btn" onClick={search}>Search</button>
+          </div>
         </div>
         {(typeof weather.main != "undefined") ? (
         <div>
@@ -56,6 +64,8 @@ function App() {
           </div>
           <div className="date">
            {dateBuilder(new Date())}
+           <br></br>
+           {timeBuilder(new Date())}
           </div>
           </div>
           <div className="weather-box">

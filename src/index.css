@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'montseratt', sans-serif;
+  font-family: 'Consolas', sans-serif;
 }
 
 .app {
@@ -34,6 +34,7 @@ main{
 
 .search-box .search-bar
 {
+  font-family: 'Consolas';
   display :block;
   width: 100%;
   padding: 15px;
@@ -59,6 +60,40 @@ main{
 {
   background-color: rgba(255, 255, 255, 0.75);
 }
+
+.search-box .button
+{
+  
+ display: block;
+ text-align: center;
+ 
+}
+.button .btn{
+   
+  width: 80px;
+  display :block;
+  background-color: rgba(0, 0, 0, 0.5); 
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 15px;
+  margin-top: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow:0px 5px  rgba(0,0, 0, 0.2);
+
+  color: #999999;
+  font-size: 10px;
+  font-family: 'Consolas';
+  transition: 0.5s ease;
+}
+
+.btn:active{
+  box-shadow: 0 5px rgba(0, 0, 0, 0);
+  transform: translateY(4px);
+}
+
 
 .location-box .location{
   color: #FFFF;
